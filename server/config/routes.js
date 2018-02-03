@@ -6,7 +6,7 @@ module.exports = function(app){
     app.post('/author', (req,res)=>{
         authors.create(req,res);
     })
-
+//del an author
     app.delete('/author/:id', (req,res)=>{
         authors.removeAuthor(req,res);
     })
@@ -23,8 +23,15 @@ module.exports = function(app){
         authors.update(req,res);
     })
 
+    app.patch('/author/:id', (req,res)=>{
+        authors.pushQuote(req,res)
+    })
+
 // catch all 
     app.post('*', (req,res)=>{
         authors.sendFile(path.resolve('./public/dist/index.html'));
     })
 }
+
+
+

@@ -53,7 +53,16 @@ module.exports= {
         .catch(
             error => res.json({message : "Error", error:error})
         )
+    },
+
+    pushQuote:function(req, res){
+        Author.findByIdAndUpdate({_id: req.params.id},{$push:{quotes:req.body}},
+        {runValidators:true, new: true})
+        .then(
+            data => res.json({message : "Success",quote: data})
+        )
+        .catch(
+            error => res.json({message : "Error", error:error})
+        )
     }
-
-
 }

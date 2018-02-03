@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpService } from './http.service';
+import { HttpClientModule } from '@angular/common/http';
 
-import { HttpService } from './http.service';// add this line
-import { HttpClientModule } from '@angular/common/http'; //add this too
-
+import { FormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { NewComponent } from './new/new.component';
 import { CreateComponent } from './create/create.component';
 import { WriteComponent } from './write/write.component';
+import { QuotesComponent } from './quotes/quotes.component';
 
 
 @NgModule({
@@ -20,14 +21,16 @@ import { WriteComponent } from './write/write.component';
     HomeComponent,
     NewComponent,
     CreateComponent,
-    WriteComponent
+    WriteComponent,
+    QuotesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [HttpService],//add this line too
+  providers: [HttpService], //add this line too
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from './http.service';
+import { HttpService } from './http.service'; // add this line
 
 @Component({
   selector: 'app-root',
@@ -8,13 +8,10 @@ import { HttpService } from './http.service';
 })
 export class AppComponent implements OnInit{
   title = 'Quote Ranks';
- constructor(private _httpService: HttpService) {}
+  constructor(private _httpService: HttpService){}
 
  ngOnInit(){
-   this.getAuthors();
- }
- getAuthors(){
-   this._httpService.getAuthors().subscribe(data=>console.log("Got some data  bro !!!!!", data))
- }
-}
 
+ }
+ 
+}
